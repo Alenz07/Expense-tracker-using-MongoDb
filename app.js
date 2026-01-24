@@ -54,7 +54,7 @@ const ai = new genAi.GoogleGenAI({
 
 async function listen() {
   try {
-    const sync = await mongoose.connect("mongodb+srv://Divesh:123divesh123@cluster0.nistn3a.mongodb.net/?appName=Cluster0")
+    const sync = await mongoose.connect("MYMONGODBURL")
     app.listen(2000, () => {
       console.log("✅ Server is running on http://localhost:2000")
     })
@@ -62,4 +62,5 @@ async function listen() {
   catch (error) {
     console.log(error)
   }
+
 } listen()
