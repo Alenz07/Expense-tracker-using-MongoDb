@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker Pro</title>
+    <link rel="stylesheet" href="/css/expense.css">
+</head>
+<body>
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    
+    <h1 id="mainHeader">EXPENSE TRACKER</h1>
+    
+    <button id="payBtn" style="display:none">Get Premium Feature</button>
+    <!-- Premium Features Modal/Section -->
+<div id="premiumFeatures" style="display:none; background: #fff; padding: 30px; border-radius: 8px; max-width: 600px; margin: 20px auto; border: 2px solid #f59e0b;">
+    <h2 style="color: #d97706; text-align: center;">🌟 Premium Features</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li style="padding: 10px; border-bottom: 1px solid #e5e7eb;">
+            📊 <strong>Advanced Filtering:</strong> Filter by Daily, Weekly, Monthly
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #e5e7eb;">
+            🏆 <strong>Leaderboard Access:</strong> See top spenders
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #e5e7eb;">
+            📥 <strong>CSV Export:</strong> Download your expense data
+        </li>
+        <li style="padding: 10px;">
+            🤖 <strong>AI Insights:</strong> Get smart expense analysis
+        </li>
+    </ul>
+    <button 
+    onclick='
+        
+        document.getElementById("showFeaturesBtn").style.display = "block";
+        document.getElementById("premiumFeatures").style.display = "none";
+    '
+    style="width: 100%; margin-top: 20px;">
+    Close
+</button>
+</div>
+
+<button id="showFeaturesBtn" 
+    onclick="showPrem(event)" 
+    style="display:none; background:red; color: whitesmoke; border: none; padding: 10px 20px; border-radius: 6px; margin: 10px auto; cursor: pointer;">
+    View Premium Feature
+</button>
+
+    
+    <form onsubmit="posting(event)">
+        <label>Amount Spend:</label> 
+        <input type="number" name="amountSpend" id="amountSpend"><br><br>
+        
+        <label>Where:</label> 
+        <select id="where" name="where">
+            <option>Fuel</option>
+            <option>Education</option>
+            <option>Food</option>
+            <option>Ration</option>
+            <option>Tour</option>
+        </select><br><br>
+        
+        <label>Description:</label> 
+        <input type="text" name="description" id="description"><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <form id="editForm" style="display:none" onsubmit="updateData(event)">
+        <label>Amount Spend:</label> 
+        <input type="number" name="amountSpend" id="UpdateamountSpend"><br><br>
+        
+        <label>Where:</label> 
+        <select id="Updatewhere" name="where">
+            <option>Fuel</option>
+            <option>Education</option>
+            <option>Food</option>
+            <option>Ration</option>
+            <option>Tour</option>
+        </select><br><br>
+        
+        <label>Description:</label> 
+        <input type="text" name="description" id="updatedescription"><br><br>
+        
+        <button type="submit">Update</button>
+    </form>
+
+    <label>Number of Rows:</label>
+    <select id="rowsPage" onchange="receive()">
+        <option selected>5</option>
+        <option>10</option>
+        <option>20</option>
+        <option>40</option>
+    </select>
+    
+    <label>Filter:</label>
+    <select id="filterSelect" onchange="filterChange()" style="display:none">
+        <option value="all">All</option>
+        <option value="daily">Today</option>
+        <option value="weekly">Week</option>
+        <option value="monthly">Month</option>
+    </select>
+    
+    <table class="leaderboard-table" id="leaderBoard" style="display:none">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Email</th>
+                <th>Total Expense (₹)</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+    </table>
+        
+
+    
+    <button id="downloadCSV" style="display:none">Download CSV</button>
+    <!-- Replace the AI button section in your HTML with this: -->
+
+<button id="aiButton" style="display:none; background: #8b5cf6; color: white; border: none; padding: 10px 20px; border-radius: 6px; margin: 10px auto; display: block; cursor: pointer;">
+     Generate AI Report
+</button>
+
+<div id="aiResponseBox" style="display:none; background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px auto; max-width: 600px; border-left: 4px solid #8b5cf6;">
+    <h3 style="margin-top: 0; color: #6b21a8;">📊 AI Expense Analysis</h3>
+    <p id="aiResponse" style="line-height: 1.6; color: #374151;">Loading analysis...</p>
+</div>
+
+<button id="downloadCSV" style="display:none">Download CSV</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="expense.js"></script>
+</body>
+</html>

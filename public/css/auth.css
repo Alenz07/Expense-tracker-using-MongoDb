@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3b82f6;
+}
+
+h1 {
+    color: #1e3a8a;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    color: #374151;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    background: #ffffff;
+    border: 2px solid #d1d5db;
+    color: #1f2937;
+    font-size: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+input:hover {
+    border-color: #9ca3af;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    transition: all 0.2s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Links */
+a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
